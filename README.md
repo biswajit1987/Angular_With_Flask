@@ -26,13 +26,13 @@ For deployment : https://angular.io/guide/deployment
  
  $ sudo /usr/bin/mysql -u root -p
       
-	mysql> CREATE USER 'demo'@'localhost' IDENTIFIED BY 'Password@1';
+	mysql> CREATE USER 'demo1'@'localhost' IDENTIFIED BY 'Password@1';
 	
-	mysql> GRANT ALL PRIVILEGES ON *.* TO 'demo'@'localhost' WITH GRANT OPTION;
+	mysql> GRANT ALL PRIVILEGES ON *.* TO 'demo1'@'localhost' WITH GRANT OPTION;
 	
-	mysql> CREATE USER 'demo'@'ip' IDENTIFIED BY 'Password@1';
+	mysql> CREATE USER 'demo1'@'ip' IDENTIFIED BY 'Password@1';
 	
-	mysql> GRANT ALL PRIVILEGES ON *.* TO 'demo'@'ip'  WITH GRANT OPTION;
+	mysql> GRANT ALL PRIVILEGES ON *.* TO 'demo1'@'ip'  WITH GRANT OPTION;
 	
 	 
 	 FLUSH PRIVILEGES;
