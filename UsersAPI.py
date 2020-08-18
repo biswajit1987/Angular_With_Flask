@@ -11,7 +11,7 @@ CORS(app,support_credentials=True)
 
 HOST = '<DB_SERVER>'
 DATABASE = 'db_name'
-USER = "demo1"
+USER = "demo"
 PASSWORD = "Password@1"
 
 
