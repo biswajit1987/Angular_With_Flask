@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Git Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: https://github.com/appu-rajiv/poc-deploy-webapp.git]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/appu-rajiv/poc-deploy-webapp.git']]])
             }
         }
         stage ('Deploy Webapp') {
@@ -17,7 +17,7 @@ pipeline {
         stage ('API Testing') {
             agent { label 'docker-poc'}
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: https://github.com/appu-rajiv/poc-selenium-robot.git]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/appu-rajiv/poc-selenium-robot.git']]])
                 sh("docker build -t robot .")
                 sh("docker run -e SERVER_URL=http://${WEBAPP_IP}:${WEBAPP_PORT} -v " + "\'${WORKSPACE}/testsuites:/workspace\' robot")
             }
