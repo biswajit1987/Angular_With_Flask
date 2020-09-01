@@ -105,5 +105,3 @@ For deployment : https://angular.io/guide/deployment
  
  #Note** :- Restart the server
  
- Demo commit added
- 
