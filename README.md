@@ -5,7 +5,7 @@ Mor more information on build :- https://angular.io/guide/build
 For deployment : https://angular.io/guide/deployment
 
 
-#Note :: Need python, Lib(mysql,Flask,flask_cors,waitress )
+#Note :: Need python, Lib(mysql,Flask,flask_cors,waitress,mysql-connector-python)
 
  $ sudo apt-get update
  
