@@ -10,8 +10,8 @@ cors = CORS(app, resources={r"/": {"origins": "*"}})
 CORS(app,support_credentials=True)
 
 HOST = '<DB_SERVER>'
-DATABASE = 'db_name'
-USER = "demo"
+DATABASE = 'pocdb'
+USER = "pocuser"
 PASSWORD = "Password@1"
 
 
@@ -34,7 +34,7 @@ def api_all():
     db_connection = mysql.connect(host=HOST, database=DATABASE, user=USER, password=PASSWORD)
     db_connection.row_factory = dict_factory
     cursor = db_connection.cursor()
-    cursor.execute("SELECT * FROM demousers")
+    cursor.execute("SELECT * FROM pocusers")
     row_headers = [x[0] for x in cursor.description]  # this will extract row headers
     result = cursor.fetchall()
     json_data = []
@@ -61,7 +61,7 @@ def api_filter():
     email = query_parameters.get('email')
     mobile = query_parameters.get('mobile')
 
-    query = "SELECT * FROM demousers WHERE"
+    query = "SELECT * FROM pocusers WHERE"
     to_filter = []
 
     if ids:
@@ -100,7 +100,7 @@ def update_users():
     password = query_parameters['password']
     introduction = query_parameters['introduction']
 
-    query = 'INSERT INTO demousers (name, mobile, password, introduction, email) VALUES (%s, %s, %s, %s, %s)'
+    query = 'INSERT INTO pocusers (name, mobile, password, introduction, email) VALUES (%s, %s, %s, %s, %s)'
     to_filter = (name, mobile, password, introduction, email)
 
     if not (introduction or mobile or email or name or password):
@@ -124,7 +124,7 @@ def delete_users():
     email = query_parameters.get('email')
     mobile = query_parameters.get('mobile')
 
-    query = "DELETE FROM demousers WHERE"
+    query = "DELETE FROM pocusers WHERE"
     to_filter = []
 
     if ids:
@@ -165,7 +165,7 @@ def update():
     introduction = query_parameters['introduction']
     ids = query_parameters['id']
 
-    query = "UPDATE demousers SET"
+    query = "UPDATE pocusers SET"
     to_filter = []
 
     if introduction:
